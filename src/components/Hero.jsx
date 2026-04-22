@@ -65,7 +65,7 @@ export default function Hero() {
           </div>
 
           <p className="mt-6 text-base sm:text-lg text-lavender-100/80 max-w-xl leading-relaxed">
-            Yapay zekâ ve mobil uygulama geliştirme alanlarında kendini sürekli geliştiren bir yazılım mühendisliği öğrencisiyim. Makine öğrenmesi, veri analizi ve modern arayüz teknolojilerini bir araya getirerek gerçek dünya problemlerine yenilikçi ve kullanıcı odaklı çözümler üretmeyi hedefliyorum. Geliştirdiği projelerde performans, ölçeklenebilirlik ve kullanıcı deneyimini ön planda tutuyorum.
+            Yapay zekâ ve mobil uygulama geliştirme alanlarında kendini sürekli geliştiren bir yazılım mühendisliği öğrencisiyim. Makine öğrenmesi, veri analizi ve modern arayüz teknolojilerini bir araya getirerek gerçek dünya problemlerine yenilikçi ve kullanıcı odaklı çözümler üretmeyi hedefliyorum. Geliştirdiğim projelerde performans, ölçeklenebilirlik ve kullanıcı deneyimini ön planda tutuyorum.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3 sm:gap-4">
