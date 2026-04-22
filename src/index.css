@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-midnight-950 text-lavender-50 font-sans antialiased overflow-x-hidden;
+  background:
+    radial-gradient(ellipse 80% 50% at 20% 0%, rgba(124,84,255,0.18), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 100% 30%, rgba(74,134,232,0.12), transparent 60%),
+    radial-gradient(ellipse 70% 40% at 50% 100%, rgba(188,166,255,0.1), transparent 60%),
+    #060416;
+  min-height: 100vh;
+}
+
+/* Soft grain overlay for premium feel */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- Custom scrollbar ---------- */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #060416; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #6236f0, #bca6ff);
+  border-radius: 8px;
+}
+
+/* ---------- Glass panel ---------- */
+.glass {
+  background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  backdrop-filter: blur(14px) saturate(150%);
+  -webkit-backdrop-filter: blur(14px) saturate(150%);
+  border: 1px solid rgba(188,166,255,0.15);
+}
+
+.glass-strong {
+  background: linear-gradient(135deg, rgba(124,84,255,0.15), rgba(74,134,232,0.08));
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid rgba(188,166,255,0.25);
+}
+
+/* ---------- Gradient text ---------- */
+.text-gradient {
+  background: linear-gradient(135deg, #ede6ff 0%, #bca6ff 40%, #9a7aff 70%, #86b5ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-soft {
+  background: linear-gradient(135deg, #d9ccff 0%, #9a7aff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ---------- Glowing borders / cards ---------- */
+.glow-border {
+  position: relative;
+}
+.glow-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(188,166,255,0.6), rgba(124,84,255,0.2), rgba(134,181,255,0.5));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.6;
+  transition: opacity 0.5s ease;
+}
+.glow-border:hover::before {
+  opacity: 1;
+}
+
+/* ---------- Scroll reveal ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Cursor sparkle ---------- */
+.sparkle {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff 0%, #bca6ff 40%, rgba(124,84,255,0) 70%);
+  box-shadow: 0 0 10px #bca6ff, 0 0 20px #7c54ff;
+  animation: sparkleFade 900ms ease-out forwards;
+  will-change: transform, opacity;
+}
+@keyframes sparkleFade {
+  0%   { opacity: 1; transform: translate(-50%, -50%) scale(0.4) rotate(0deg); }
+  40%  { opacity: 1; transform: translate(calc(-50% + var(--dx,0px)), calc(-50% + var(--dy,0px))) scale(1.2) rotate(90deg); }
+  100% { opacity: 0; transform: translate(calc(-50% + var(--dx,0px)), calc(-50% + var(--dy,-40px))) scale(0.2) rotate(180deg); }
+}
+
+.star-sparkle {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  color: #ede6ff;
+  filter: drop-shadow(0 0 6px #bca6ff) drop-shadow(0 0 12px #7c54ff);
+  animation: starFade 1100ms ease-out forwards;
+  will-change: transform, opacity;
+}
+@keyframes starFade {
+  0%   { opacity: 0; transform: translate(-50%, -50%) scale(0.2) rotate(0deg); }
+  30%  { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(45deg); }
+  100% { opacity: 0; transform: translate(calc(-50% + var(--dx,0px)), calc(-50% - 30px)) scale(0.4) rotate(180deg); }
+}
+
+/* ---------- Shimmer button ---------- */
+.shimmer-btn {
+  background: linear-gradient(110deg, #6236f0 0%, #9a7aff 40%, #bca6ff 50%, #9a7aff 60%, #6236f0 100%);
+  background-size: 200% 100%;
+  animation: shimmer 4s linear infinite;
+}
+
+/* ---------- Section background orbs ---------- */
+.orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ---------- Pixel-art image preservation ---------- */
+.pixel-img {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+/* ---------- No animations for reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .sparkle, .star-sparkle { display: none; }
+}
