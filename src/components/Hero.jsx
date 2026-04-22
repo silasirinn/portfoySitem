@@ -49,7 +49,7 @@ export default function Hero() {
             <Sparkles className="w-3.5 h-3.5 text-lavender-300" />
             <span>Yazılım Mühendisliği Öğrencisi</span>
             <span className="w-1 h-1 rounded-full bg-lavender-400/60" />
-            <span className="text-lavender-300/70">Açık Çalışma Fırsatlarına</span>
+            <span className="text-lavender-300/70">Çalışma Fırsatlarına Açık</span>
           </div>
 
           <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] leading-[1.02] tracking-tight">
